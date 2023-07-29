@@ -1,98 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Word Generator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    .container {
-      display: flex;
-    }
-    .box {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-right: 10px;
-      flex: 1;
-    }
-    canvas {
-      border: 1px solid #ccc;
-    }
-    button {
-      margin-top: 10px;
-    }
-    input[type="number"] {
-      width: 100%;
-      margin-top: 10px;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Word Generator</h1>
+<!-- ... (previous content) ... -->
 
-  <div class="container">
-    <!-- Box for Pronouns -->
-    <div class="box">
-      <h2>Pronouns</h2>
-      <p>Click the button to generate a new pronoun:</p>
-      <canvas id="pronounCanvas" width="400" height="100"></canvas>
-      <button id="generatePronounButton">Generate New Pronoun</button>
-    </div>
+<!-- Box for Affixes -->
+<div class="box">
+  <h2>Affixes</h2>
+  <p>Enter the maximum number of affixes:</p>
+  <input type="number" id="maxAffixesInput" value="1" min="1">
 
-    <!-- Box for Root Words -->
-    <div class="box">
-      <h2>Root Words</h2>
-      <p>Click the button to generate a new root word:</p>
-      <canvas id="rootCanvas" width="400" height="100"></canvas>
-      <button id="generateRootButton">Generate New Root Word</button>
-    </div>
-
-    <!-- Box for Tense -->
-    <div class="box">
-      <h2>Tense</h2>
-      <p>Click the button to generate a new tense:</p>
-      <canvas id="tenseCanvas" width="400" height="100"></canvas>
-      <button id="generateTenseButton">Generate New Tense</button>
-    </div>
-  </div>
-
-  <!-- Box for Affixes -->
-  <div class="box">
-    <h2>Affixes</h2>
-    <p>Enter the maximum number of affixes:</p>
-    <input type="number" id="maxAffixesInput" value="1" min="1">
-
-    <p>Select affixes to include:</p>
-    <label>
-      <input type="checkbox" class="affixCheckbox" value="translocative">
-      Translocative
-    </label>
-    <label>
-      <input type="checkbox" class="affixCheckbox" value="cislocative">
-      Cislocative
-    </label>
-    <!-- Add other affixes here as checkboxes -->
-
-    <p>Click the button to generate a new word part:</p>
-    <canvas id="affixCanvas" width="400" height="100"></canvas>
-    <button id="generateAffixButton">Generate New Affix</button>
-  </div>
-
-  <!-- Random Button -->
-  <button id="generateRandomButton">Generate Random Word</button>
-
-  <!-- Drill on Specific Prefixes Mode -->
+  <p>Select affixes to include:</p>
   <label>
-    <input type="checkbox" id="drillModeCheckbox">
-    Drill on Specific Prefixes
+    <input type="checkbox" class="affixCheckbox" value="translocative">
+    Translocative
+  </label>
+  <label>
+    <input type="checkbox" class="affixCheckbox" value="cislocative">
+    Cislocative
+  </label>
+  <!-- Add other affixes here as checkboxes -->
+  <label>
+    <input type="checkbox" class="affixCheckbox" value="irrealis">
+    Irrealis
+  </label>
+  <label>
+    <input type="checkbox" class="affixCheckbox" value="relativizer">
+    Relativizer
+  </label>
+  <label>
+    <input type="checkbox" class="affixCheckbox" value="causative">
+    Causative
+  </label>
+  <label>
+    <input type="checkbox" class="affixCheckbox" value="applicative">
+    Applicative
+  </label>
+  <label>
+    <input type="checkbox" class="affixCheckbox" value="reversive">
+    Reversive
+  </label>
+  <label>
+    <input type="checkbox" class="affixCheckbox" value="ambulative">
+    Ambulative
+  </label>
+  <label>
+    <input type="checkbox" class="affixCheckbox" value="completive">
+    Completive
   </label>
 
-  <script src="script.js"></script>
-</body>
-</html>
+  <p>Click the button to generate a new word part:</p>
+  <canvas id="affixCanvas" width="400" height="100"></canvas>
+  <button id="generateAffixButton">Generate New Affix</button>
+</div>
+
+<!-- ... (previous content) ... -->
