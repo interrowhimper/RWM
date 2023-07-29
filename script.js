@@ -1,8 +1,22 @@
+// Pronouns with equal probability
+const pronouns = [
+  "I",
+  "You (singular)",
+  "You two",
+  "You 3+",
+  "We 2 (inclusive)",
+  "We 2 (exclusive)",
+  "We 3+ (inclusive)",
+  "We 3+ (exclusive)",
+  "She/he/it",
+  "They (2+)",
+];
+
 // Root words with equal probability
 const rootWords = ["adawo", "an(v)t", "aduli"];
 
 // Categories with 5% probability each
-const categories = [
+const affixes = [
   ["translocative", "cislocative"],
   ["Irrealis"],
   ["Relativizer"],
@@ -26,23 +40,32 @@ function getRandomElementFromArray(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function generateWord() {
-  const canvas = document.getElementById("canvas");
+function generatePronoun() {
+  const canvas = document.getElementById("pronounCanvas");
+  const pronoun = getRandomElementFromArray(pronouns);
+  drawWord(canvas, pronoun);
+}
+
+function generateRootWord() {
+  const canvas = document.getElementById("rootCanvas");
   const rootWord = getRandomElementFromArray(rootWords);
-  const categoryProbability = Math.random();
+  drawWord(canvas, rootWord);
+}
 
-  let word = rootWord;
-
-  // Determine if a category should be added to the word
-  if (categoryProbability <= 0.05) {
-    const category = getRandomElementFromArray(categories);
-    word += " " + getRandomElementFromArray(category);
-  }
-
-  drawWord(canvas, word);
+function generateAffix() {
+  const canvas = document.getElementById("affixCanvas");
+  const affix = getRandomElementFromArray(affixes);
+  const affixWord = getRandomElementFromArray(affix);
+  drawWord(canvas, affixWord);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const generateButton = document.getElementById("generateButton");
-  generateButton.addEventListener("click", generateWord);
+  const generatePronounButton = document.getElementById("generatePronounButton");
+  generatePronounButton.addEventListener("click", generatePronoun);
+
+  const generateRootButton = document.getElementById("generateRootButton");
+  generateRootButton.addEventListener("click", generateRootWord);
+
+  const generateAffixButton = document.getElementById("generateAffixButton");
+  generateAffixButton.addEventListener("click", generateAffix);
 });
