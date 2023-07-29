@@ -15,9 +15,21 @@ const pronouns = [
 // Root words with equal probability
 const rootWords = ["adawo", "an(v)t", "aduli"];
 
+// Tense options with equal probability
+const tenseOptions = [
+  "Present",
+  "Completive Past (Reported)",
+  "Completive Past (Inexperienced)",
+  "Incompletive Past",
+  "Future",
+  "Future Progressive",
+  "Immediate",
+  "Habitual",
+];
+
 // Categories with equal probability
 const affixes = [
-  ["translocative", "cislocative"],
+  ["Translocative", "Cislocative"],
   ["Irrealis"],
   ["Relativizer"],
   ["Causative"],
@@ -52,32 +64,13 @@ function generateRootWord() {
   drawWord(canvas, rootWord);
 }
 
+function generateTense() {
+  const canvas = document.getElementById("tenseCanvas");
+  const tense = getRandomElementFromArray(tenseOptions);
+  drawWord(canvas, tense);
+}
+
 function generateAffix() {
   const canvas = document.getElementById("affixCanvas");
   const maxAffixes = parseInt(document.getElementById("maxAffixesInput").value);
-  let word = "";
-
-  // Generate random affixes based on the maximum allowed
-  for (let i = 0; i < maxAffixes; i++) {
-    if (Math.random() <= 0.5) {
-      const affix = getRandomElementFromArray(affixes);
-      const affixWord = getRandomElementFromArray(affix);
-      word += affixWord + " ";
-    }
-  }
-
-  // Trim the trailing space and draw the word on the canvas
-  word = word.trim();
-  drawWord(canvas, word);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const generatePronounButton = document.getElementById("generatePronounButton");
-  generatePronounButton.addEventListener("click", generatePronoun);
-
-  const generateRootButton = document.getElementById("generateRootButton");
-  generateRootButton.addEventListener("click", generateRootWord);
-
-  const generateAffixButton = document.getElementById("generateAffixButton");
-  generateAffixButton.addEventListener("click", generateAffix);
-});
+ 
