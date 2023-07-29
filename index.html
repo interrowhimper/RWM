@@ -8,18 +8,58 @@
     body {
       font-family: Arial, sans-serif;
     }
+    .container {
+      display: flex;
+    }
+    .box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-right: 10px;
+      flex: 1;
+    }
     canvas {
       border: 1px solid #ccc;
     }
     button {
       margin-top: 10px;
     }
+    input[type="number"] {
+      width: 100%;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
   <h1>Word Generator</h1>
-  <canvas id="canvas" width="400" height="300"></canvas>
-  <button id="generateButton">Generate New Word</button>
+
+  <div class="container">
+    <!-- Box for Pronouns -->
+    <div class="box">
+      <h2>Pronouns</h2>
+      <p>Click the button to generate a new pronoun:</p>
+      <canvas id="pronounCanvas" width="400" height="100"></canvas>
+      <button id="generatePronounButton">Generate New Pronoun</button>
+    </div>
+
+    <!-- Box for Root Words -->
+    <div class="box">
+      <h2>Root Words</h2>
+      <p>Click the button to generate a new root word:</p>
+      <canvas id="rootCanvas" width="400" height="100"></canvas>
+      <button id="generateRootButton">Generate New Root Word</button>
+    </div>
+  </div>
+
+  <!-- Box for Affixes -->
+  <div class="box">
+    <h2>Affixes</h2>
+    <p>Enter the maximum number of affixes:</p>
+    <input type="number" id="maxAffixesInput" value="1" min="1">
+    <p>Click the button to generate a new word part:</p>
+    <canvas id="affixCanvas" width="400" height="100"></canvas>
+    <button id="generateAffixButton">Generate New Affix</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
