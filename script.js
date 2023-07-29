@@ -15,7 +15,7 @@ const pronouns = [
 // Root words with equal probability
 const rootWords = ["adawo", "an(v)t", "aduli"];
 
-// Categories with 5% probability each
+// Categories with equal probability
 const affixes = [
   ["translocative", "cislocative"],
   ["Irrealis"],
@@ -54,9 +54,21 @@ function generateRootWord() {
 
 function generateAffix() {
   const canvas = document.getElementById("affixCanvas");
-  const affix = getRandomElementFromArray(affixes);
-  const affixWord = getRandomElementFromArray(affix);
-  drawWord(canvas, affixWord);
+  const maxAffixes = parseInt(document.getElementById("maxAffixesInput").value);
+  let word = "";
+
+  // Generate random affixes based on the maximum allowed
+  for (let i = 0; i < maxAffixes; i++) {
+    if (Math.random() <= 0.5) {
+      const affix = getRandomElementFromArray(affixes);
+      const affixWord = getRandomElementFromArray(affix);
+      word += affixWord + " ";
+    }
+  }
+
+  // Trim the trailing space and draw the word on the canvas
+  word = word.trim();
+  drawWord(canvas, word);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
