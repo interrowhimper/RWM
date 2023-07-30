@@ -201,7 +201,32 @@ function updateCanvasSize() {
   });
 }
 
+function getTextHeight(fontSize) {
+    const testCanvas = document.createElement("canvas");
+    const testCtx = testCanvas.getContext("2d");
+    testCtx.font = `${fontSize}px Arial`;
+    return testCtx.measureText("M").actualBoundingBoxAscent + testCtx.measureText("M").actualBoundingBoxDescent;
+  }
+
+  function adjustBoxHeights() {
+    const container = document.querySelector(".container");
+    const boxes = document.querySelectorAll(".box");
+    const totalBoxMargin = 16; // 8px top margin + 8px bottom margin per box
+    const availableHeight = window.innerHeight - container.offsetTop - totalBoxMargin;
+
+    const numBoxes = boxes.length;
+    const fontSize = 24; // Adjust the font size if needed
+    const textHeight = getTextHeight(fontSize);
+    const boxHeight = Math.floor(textHeight * 1.5); // Set canvas height to 150% of text height
+
+    boxes.forEach(box => {
+      box.style.height = `${boxHeight}px`;
+    });
+  }
+
 // Call the updateCanvasSize function when the page loads and on window resize
 window.addEventListener("load", updateCanvasSize);
 window.addEventListener("resize", updateCanvasSize);
+window.addEventListener("resize", adjustBoxHeights);
+
 
