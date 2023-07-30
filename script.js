@@ -27,13 +27,14 @@ const rootWords = [
   "-hyvsde- (getting drunk)",
   "-hnigi- (starting/leaving)",
   "-deloho- (finding it out)",
-  "-disiya- (leaving a long object behind)",
+  "-disiya- (leaving something behind [long])",
   "-alitade- (jumping)",
   "-al(i)sgi- (dancing)",
-  "-newat- (finding a liquid)",
-  "-ade- (throwing)",
+  "-newat- (finding [liquid])",
+  "-ad- (throwing)",
   "-adasdayvhv- (cooking a meal)",
   "-adehlgwa- (learning)",
+  
 ];
 
 // Tense options with equal probability
