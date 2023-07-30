@@ -71,10 +71,26 @@ const affixes = [
 function drawWord(canvas, word) {
   const ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.font = "24px Arial";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText(word, canvas.width / 2, canvas.height / 2);
+
+  const maxFontSize = 24; // Maximum font size (you can adjust this)
+  const padding = 5; // Padding to leave some space around the text
+
+  for (let fontSize = maxFontSize; fontSize > 0; fontSize--) {
+    ctx.font = `${fontSize}px Arial`;
+
+    // Measure the width of the text
+    const textWidth = ctx.measureText(word).width;
+
+    if (textWidth + 2 * padding <= canvas.width) {
+      // If the text fits, draw it centered
+      const x = (canvas.width - textWidth) / 2;
+      const y = canvas.height / 2;
+      ctx.textAlign = "left";
+      ctx.textBaseline = "middle";
+      ctx.fillText(word, x, y);
+      break;
+    }
+  }
 }
 
 function getRandomElementFromArray(arr) {
