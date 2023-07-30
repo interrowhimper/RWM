@@ -33,7 +33,7 @@ const rootWords = [
   "-newat- (finding a liquid)",
   "-ade- (throwing)",
   "-adasdayvhv- (cooking a meal)",
-  "-adehlgwa- (learning),
+  "-adehlgwa- (learning)",
 ];
 
 // Tense options with equal probability
