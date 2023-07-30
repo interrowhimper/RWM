@@ -5,12 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ᏣᎳᎩ ᎦᏬᏂᎯᏍᏗ Root Word Method Drill</title>
   <style>
-    /* ... (previous styles) ... */
-
-    /* Make sure the intro text is initially hidden */
-    .intro-text {
-      display: none;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #B0E5F9;
     }
+
+    .box {
+      border: 1px solid #ccc;
+      padding: 8px;
+      margin-bottom: 8px;
+    }
+
+    canvas {
+      border: 1px solid #ccc;
+      background-color: #FFFFFF;
+    }
+
+    button {
+      margin-top: 8px;
+      background-color: #FFFFFF;
+      align-items: center;
+    }
+
+    label {
+      margin-right: 4px;
+    }
+
+    h1 {
+      font-size: 32px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
   </style>
 </head>
 <body>
