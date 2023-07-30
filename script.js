@@ -150,3 +150,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const generateRandomButton = document.getElementById("generateRandomButton");
   generateRandomButton.addEventListener("click", generateRandomWord);
 });
+
+
+// Update button styles for mobile-friendly layout
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+  button.style.width = "100%"; // Make buttons span the full width
+});
+
+// Update canvas size for mobile-friendly layout
+function updateCanvasSize() {
+  const canvases = document.querySelectorAll("canvas");
+  canvases.forEach((canvas) => {
+    const boxWidth = canvas.parentElement.clientWidth;
+    canvas.width = boxWidth;
+    canvas.height = boxWidth / 3; // You can adjust the aspect ratio as needed
+  });
+}
+
+// Call the updateCanvasSize function when the page loads and on window resize
+window.addEventListener("load", updateCanvasSize);
+window.addEventListener("resize", updateCanvasSize);
+
