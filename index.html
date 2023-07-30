@@ -139,11 +139,11 @@
   function adjustBoxHeights() {
     const container = document.querySelector(".container");
     const boxes = document.querySelectorAll(".box");
-    const totalBoxMargin = 16; // 8px top margin + 8px bottom margin per box
+    const totalBoxMargin = 16px; // 8px top margin + 8px bottom margin per box
     const availableHeight = window.innerHeight - container.offsetTop - totalBoxMargin;
 
     const numBoxes = boxes.length;
-    const boxHeight = Math.floor(availableHeight / numBoxes);
+    const boxHeight = Math.ceiling(availableHeight / numBoxes);
 
     boxes.forEach(box => {
       box.style.height = `${boxHeight}px`;
