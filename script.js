@@ -14,11 +14,26 @@ const pronouns = [
 
 // Root words with equal probability
 const rootWords = [
-  "-an(v)t-",
-  "-aduli-",
-  "-ohwel-",
-  "-oliye-",
-  "-ohlv-",
+  "-an(v)t- (knowing)",
+  "-aduli- (wanting)",
+  "-ohwel- (writing)",
+  "-goliye- (reading)",
+  "-ohlv- (making)",
+  "-woni- (speaking)",
+  "-oli- (understanding)",
+  "-sga- (being afraid)",
+  "-dan(v)t- (feeling)",
+  "-ki- (swallowing)",
+  "-hyvsde- (getting drunk)",
+  "-hnigi- (starting/leaving)",
+  "-deloho- (finding it out)",
+  "-disiya- (leaving a long object behind)",
+  "-alitade- (jumping)",
+  "-al(i)sgi- (dancing)",
+  "-newat- (finding a liquid)",
+  "-ade- (throwing)",
+  "-adasdayvhv- (cooking a meal)",
+  "-adehlgwa- (learning),
 ];
 
 // Tense options with equal probability
