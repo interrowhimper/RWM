@@ -121,41 +121,5 @@
   <!-- Random Button -->
   <button id="generateRandomButton">Randomize All</button>
 
-  <script>
-    // ... (your script, without the duplicate functions) ...
-
-    // Show/hide intro text based on checkbox state
-    const hideIntroCheckbox = document.getElementById("hideIntroCheckbox");
-    const introText = document.getElementById("introText");
-
-    hideIntroCheckbox.addEventListener("change", () => {
-      if (hideIntroCheckbox.checked) {
-        introText.style.display = "none";
-      } else {
-        introText.style.display = "block";
-      }
-    });
-
-    // Dynamically adjust the height of boxes to fit the screen
-    function adjustBoxHeights() {
-      const container = document.querySelector(".container");
-      const boxes = document.querySelectorAll(".box");
-      const totalBoxMargin = 16; // 8px top margin + 8px bottom margin per box
-      const availableHeight = window.innerHeight - container.offsetTop - totalBoxMargin;
-
-      const numBoxes = boxes.length;
-      const boxHeight = Math.floor(availableHeight / numBoxes);
-
-      boxes.forEach(box => {
-        box.style.height = `${boxHeight}px`;
-      });
-    }
-
-    // Adjust box heights on initial load and on window resize
-    window.addEventListener("load", adjustBoxHeights);
-    window.addEventListener("resize", adjustBoxHeights);
-
-  </script>
-
 </body>
 </html>
