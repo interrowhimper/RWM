@@ -29,7 +29,6 @@
   <!-- ... (rest of the HTML) ... -->
 
   <script>
-    // ... (previous script) ...
 
     // Function to show or hide the intro text
     const introCheckbox = document.getElementById("showHideIntro");
@@ -42,22 +41,6 @@
         introText.style.display = "none";
       }
     });
-
-    // Update button styles for mobile-friendly layout
-    const buttons = document.querySelectorAll("button");
-    buttons.forEach((button) => {
-      button.style.width = "100%"; // Make buttons span the full width
-    });
-
-    // Update canvas size for mobile-friendly layout
-    function updateCanvasSize() {
-      const canvases = document.querySelectorAll("canvas");
-      canvases.forEach((canvas) => {
-        const boxWidth = canvas.parentElement.clientWidth;
-        canvas.width = boxWidth;
-        canvas.height = boxWidth / 3; // You can adjust the aspect ratio as needed
-      });
-    }
 
   
   </script>
