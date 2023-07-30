@@ -8,14 +8,10 @@
     body {
       font-family: Arial, sans-serif;
     }
-    .container {
-      display: flex;
-    }
     .box {
       border: 1px solid #ccc;
       padding: 10px;
-      margin-right: 10px;
-      flex: 1;
+      margin-bottom: 10px;
     }
     canvas {
       border: 1px solid #ccc;
@@ -23,49 +19,44 @@
     button {
       margin-top: 10px;
     }
-    input[type="number"] {
-      width: 100%;
-      margin-top: 10px;
+    label {
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
   <h1>Word Generator</h1>
 
-  <div class="container">
-    <!-- Box for Pronouns -->
-    <div class="box">
-      <h2>Pronouns</h2>
-      <p>Click the button to generate a new pronoun:</p>
-      <canvas id="pronounCanvas" width="400" height="100"></canvas>
-      <button id="generatePronounButton">Generate New Pronoun</button>
-    </div>
-
-    <!-- Box for Root Words -->
-    <div class="box">
-      <h2>Root Words</h2>
-      <p>Click the button to generate a new root word:</p>
-      <canvas id="rootCanvas" width="400" height="100"></canvas>
-      <button id="generateRootButton">Generate New Root Word</button>
-    </div>
-
-    <!-- Box for Tense -->
-    <div class="box">
-      <h2>Tense</h2>
-      <p>Click the button to generate a new tense:</p>
-      <canvas id="tenseCanvas" width="400" height="100"></canvas>
-      <button id="generateTenseButton">Generate New Tense</button>
-    </div>
+  <!-- Box for Pronouns -->
+  <div class="box">
+    <h2>Pronouns</h2>
+    <p>Click the button to generate a new pronoun:</p>
+    <canvas id="pronounCanvas" width="400" height="100"></canvas>
+    <button id="generatePronounButton">Generate Pronoun</button>
   </div>
 
-  <!-- Box for Affixes -->
+  <!-- Box for Root Words -->
   <div class="box">
-    <h2>Affixes</h2>
-    <p>Enter the maximum number of affixes:</p>
-    <input type="number" id="maxAffixesInput" value="1" min="1">
-    <p>Click the button to generate a new word part:</p>
+    <h2>Root Words</h2>
+    <p>Click the button to generate a new root word:</p>
+    <canvas id="rootCanvas" width="400" height="100"></canvas>
+    <button id="generateRootButton">Generate Root Word</button>
+  </div>
+
+  <!-- Box for Tense -->
+  <div class="box">
+    <h2>Tense</h2>
+    <p>Click the button to generate a new tense:</p>
+    <canvas id="tenseCanvas" width="400" height="100"></canvas>
+    <button id="generateTenseButton">Generate Tense</button>
+  </div>
+
+  <!-- Box for Affix -->
+  <div class="box">
+    <h2>Affix</h2>
+    <label><input type="checkbox" id="addAffixCheckbox"> Add an affix?</label>
     <canvas id="affixCanvas" width="400" height="100"></canvas>
-    <button id="generateAffixButton">Generate New Affix</button>
+    <button id="generateAffixButton">Generate Affix</button>
   </div>
 
   <!-- Random Button -->
