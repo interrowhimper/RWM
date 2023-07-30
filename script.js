@@ -4,39 +4,46 @@ const pronouns = [
   "You (singular)",
   "You two",
   "You 3+",
-  "We 2 (inclusive)",
-  "We 2 (exclusive)",
+  "We two (inclusive)",
   "We 3+ (inclusive)",
+  "We two (exclusive)",
   "We 3+ (exclusive)",
-  "She/he/it",
-  "They (2+)",
+  "He/she/it",
+  "They",
 ];
 
 // Root words with equal probability
-const rootWords = ["adawo", "an(v)t", "aduli"];
+const rootWords = [
+  "-an(v)t-",
+  "-aduli-",
+  "-ohwel-",
+  "-oliye-",
+  "-ohlv-",
+];
 
 // Tense options with equal probability
 const tenseOptions = [
   "Present",
+  "Completive Past (Experienced)",
   "Completive Past (Reported)",
-  "Completive Past (Inexperienced)",
-  "Incompletive Past",
+  "Incompletive Past (Experienced)",
+  "Incompletive Past (Reported)",
+  "Immediate",
   "Future",
   "Future Progressive",
-  "Immediate",
-  "Habitual",
+  "Infinitive",
 ];
 
-// Categories with equal probability
+// Affix options with equal probability
 const affixes = [
-  ["translocative", "cislocative"],
-  ["Irrealis"],
-  ["Relativizer"],
-  ["Causative"],
-  ["Applicative"],
-  ["Reversive"],
-  ["Ambulative"],
-  ["Completive"],
+  "causative",
+  "applicative",
+  "reversive",
+  "irrealis",
+  "translocative",
+  "cislocative",
+  "terminative",
+  "pre-incipient",
 ];
 
 function drawWord(canvas, word) {
@@ -72,21 +79,14 @@ function generateTense() {
 
 function generateAffix() {
   const canvas = document.getElementById("affixCanvas");
-  const maxAffixes = parseInt(document.getElementById("maxAffixesInput").value);
-  let word = "";
+  const addAffixCheckbox = document.getElementById("addAffixCheckbox");
+  let affix = "";
 
-  // Generate random affixes based on the maximum allowed
-  for (let i = 0; i < maxAffixes; i++) {
-    if (Math.random() <= 0.5) {
-      const affix = getRandomElementFromArray(affixes);
-      const affixWord = getRandomElementFromArray(affix);
-      word += affixWord + " ";
-    }
+  if (addAffixCheckbox.checked) {
+    affix = getRandomElementFromArray(affixes);
   }
 
-  // Trim the trailing space and draw the word on the canvas
-  word = word.trim();
-  drawWord(canvas, word);
+  drawWord(canvas, affix);
 }
 
 function generateRandomWord() {
