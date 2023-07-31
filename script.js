@@ -1,144 +1,57 @@
-// Pronouns with equal probability
-const pronouns = [
-  "I",
-  "You (singular)",
-  "You two",
-  "You 3+",
-  "We two (inclusive)",
-  "We 3+ (inclusive)",
-  "We two (exclusive)",
-  "We 3+ (exclusive)",
-  "He/she/it",
-  "They",
-];
+const verbSets = {
+  "glottal": [
+    "go²hwe²³li³Ɂa (writing)",
+    "go¹we²³lị³Ɂa",
+    "u¹wo²hwe²³la³²nv²³Ɂi",
+    "go²hwe²³li³²sgo³Ɂi",
+    "ho²hwe²lv¹ga",
+    "ụ²wo²hwe²³lo³²di",
+  ],
+  "sg": [
+    "gv²tṿ³sga (putting it into a fire)",
+    "gv¹dṿ³sga",
+    "u¹wv²tạ³nv³Ɂi",
+    "gv²tṿ³sgọ³Ɂi",
+    "hv²tv¹ga",
+    "ụ²wv²tdi",
+  ],
+  // Add more sets here with their respective aspects
+};
 
-// Root words with equal probability
-const rootWords = [
-  "-ad- (throwing)",
-  "-aduli- (wanting)",
-  "-adasdayvhv- (cooking a meal)",
-  "-ade- (giving someone something [long/neutral]",
-  "-adehlgwa- (learning)",
-  "-advne- (doing)",
-  "-al(i)sgi- (dancing)",
-  "-alitade- (jumping)",
-  "-dan(v)t- (feeling)",
-  "-de- (giving someone something [long/neutral]",
-  "-deyohv- (teaching)",
-  "-deloho- (finding it out)",
-  "-dita- (drinking)",
-  "-disiya- (leaving an object behind [long])",
-  "-goliye- (reading)",
-  "-hnigi- (starting/leaving)",
-  "-hv- (setting something down)",
-  "-hyvsde- (getting drunk)",
-  "-ki- (swallowing)",
-  "-newat- (finding [liquid])",
-  "-ohlv- (making)",
-  "-ohwel- (writing)",
-  "-oli- (understanding)",
-  "-sga- (being afraid)",
-  "-woni- (speaking)",
-  "-ohiyu- (having confidence/faith)",
+const verbCanvas = document.getElementById("verbCanvas");
+const canvasContext = verbCanvas.getContext("2d"); // Get the canvas 2D context
+const randomButton = document.getElementById("randomButton");
+const inputAspect = document.getElementById("inputAspect");
+const revealButton = document.getElementById("revealButton");
+const aspectResult = document.getElementById("aspectResult");
+
+let currentVerb = null;
+let currentAspect = null;
+
+function getRandomWord(verbs) {
+  return verbs[Math.floor(Math.random() * verbs.length)];
+}
+
+function drawWord(text) {
+  // Clear the previous text on the canvas
+  canvasContext.clearRect(0, 0, verbCanvas.width, verbCanvas.height);
   
-];
-
-// Tense options with equal probability
-const tenseOptions = [
-  "Present",
-  "Completive Past (Experienced)",
-  "Completive Past (Reported)",
-  "Incompletive Past (Experienced)",
-  "Incompletive Past (Reported)",
-  "Immediate",
-  "Future",
-  "Future Progressive",
-  "Infinitive",
-];
-
-// Affix options with equal probability
-const affixes = [
-  "causative",
-  "applicative",
-  "reversive",
-  "irrealis",
-  "iterative prefix",
-  "translocative prefix (wi)",
-  "translocative aspect",
-  "cislocative prefix (di)",
-  "cislocative aspect",
-  "terminative",
-  "pre-incipient",
-  "ambulative",
-  "accidental",
-  "repetitive aspect",
-  "frequentive/recurring",
-  "partitive (ni)",
-];
-
-function drawWord(canvas, word) {
-  const ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.font = "24px Arial";
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText(word, canvas.width / 2, canvas.height / 2);
+  // Draw the new text on the canvas
+  canvasContext.font = "20px Arial"; // Set the font size and family
+  canvasContext.fillStyle = "black"; // Set the text color
+  canvasContext.fillText(text, 10, 50); // You can change the position as needed
 }
 
-function getRandomElementFromArray(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
+randomButton.addEventListener("click", function () {
+  const randomSet = getRandomWord(Object.keys(verbSets));
+  currentVerb = getRandomWord(verbSets[randomSet]);
+  currentAspect = randomSet;
+  drawWord(currentVerb); // Draw the randomly chosen word on the canvas
+  aspectResult.textContent = ''; // Clear previous result when generating a new word
+});
 
-function generatePronoun() {
-  const canvas = document.getElementById("pronounCanvas");
-  const pronoun = getRandomElementFromArray(pronouns);
-  drawWord(canvas, pronoun);
-}
-
-function generateRootWord() {
-  const canvas = document.getElementById("rootCanvas");
-  const rootWord = getRandomElementFromArray(rootWords);
-  drawWord(canvas, rootWord);
-}
-
-function generateTense() {
-  const canvas = document.getElementById("tenseCanvas");
-  const tense = getRandomElementFromArray(tenseOptions);
-  drawWord(canvas, tense);
-}
-
-function generateAffix() {
-  const canvas = document.getElementById("affixCanvas");
-  const addAffixCheckbox = document.getElementById("addAffixCheckbox");
-  let affix = "";
-
-  if (addAffixCheckbox.checked) {
-    affix = getRandomElementFromArray(affixes);
-  }
-
-  drawWord(canvas, affix);
-}
-
-function generateRandomWord() {
-  generatePronoun();
-  generateRootWord();
-  generateTense();
-  generateAffix();
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const generatePronounButton = document.getElementById("generatePronounButton");
-  generatePronounButton.addEventListener("click", generatePronoun);
-
-  const generateRootButton = document.getElementById("generateRootButton");
-  generateRootButton.addEventListener("click", generateRootWord);
-
-  const generateTenseButton = document.getElementById("generateTenseButton");
-  generateTenseButton.addEventListener("click", generateTense);
-
-  const generateAffixButton = document.getElementById("generateAffixButton");
-  generateAffixButton.addEventListener("click", generateAffix);
-
-  const generateRandomButton = document.getElementById("generateRandomButton");
-  generateRandomButton.addEventListener("click", generateRandomWord);
+revealButton.addEventListener("click", function () {
+  const userInput = inputAspect.value.trim();
+  
+  aspectResult.textContent = `"${currentAspect}"`;
 });
