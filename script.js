@@ -19,6 +19,7 @@ const rootWords = [
   "-adasdayvhv- (cooking a meal)",
   "-ade- (giving someone something [long/neutral]",
   "-adehlgwa- (learning)",
+  "-advne- (doing)",
   "-al(i)sgi- (dancing)",
   "-alitade- (jumping)",
   "-dan(v)t- (feeling)",
@@ -38,6 +39,8 @@ const rootWords = [
   "-oli- (understanding)",
   "-sga- (being afraid)",
   "-woni- (speaking)",
+  "-ohiyu- (having confidence/faith)",
+  
 ];
 
 // Tense options with equal probability
@@ -59,10 +62,18 @@ const affixes = [
   "applicative",
   "reversive",
   "irrealis",
-  "translocative",
-  "cislocative",
+  "iterative prefix",
+  "translocative prefix (wi)",
+  "translocative aspect",
+  "cislocative prefix (di)",
+  "cislocative aspect",
   "terminative",
   "pre-incipient",
+  "ambulative",
+  "accidental",
+  "repetitive aspect",
+  "frequentive/recurring",
+  "partitive (ni)",
 ];
 
 function drawWord(canvas, word) {
