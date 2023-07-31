@@ -55,14 +55,21 @@ const tenseOptions = [
 
 // Affix options with equal probability
 const affixes = [
-  "causative",
-  "applicative",
-  "reversive",
-  "irrealis",
-  "translocative",
-  "cislocative",
-  "terminative",
-  "pre-incipient",
+  "causative (aspect)",
+  "applicative (aspect)",
+  "reversive (non-final suffix)",
+  "irrealis (prefix)",
+  "translocative (aspect)",
+  "translocative (prefix)",
+  "cislocative (aspect)",
+  "cislocative (prefix)",
+  "terminative (aspect)",
+  "pre-incipient (aspect)",
+  "locative/ambulative (aspect)",
+  "completive (aspect)",
+  "accidental (aspect)",
+  "repetitive (aspect)",
+  "frequentive/recurring (aspect)",
 ];
 
 function drawWord(canvas, word) {
